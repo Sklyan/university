@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
+let int , b, c
 
