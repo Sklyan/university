@@ -31,11 +31,53 @@ class car {
     }
 }
     var car1 = car(color: .red, carMark: "BMW", year: 2018, window: .close)
-    print(car1.year)
+    print("Год выпуск автомобиля = \(car1.year)")
 
 class superCar: car {
-    var sunRoof: Bool = true
+    enum SunRoof {
+        case open
+        case close
+    }
+    var sunRoof: SunRoof
+    func sunRoofOpen() {
+        sunRoof = .open
+    }
+    func sunRoofClose() {
+        sunRoof = .close
+    }
+    init(color:UIColor, carMark: String, year: Int, window: WindowOpen, sunRoof: SunRoof) {
+    self.sunRoof = sunRoof
+        super.init(color: color, carMark: carMark, year: year, window: window)
+    }
+//    init (sunRoof: SunRoof) {
+//        self.sunRoof = sunRoof
+//    }
 }
-var car2 = superCar(color: .black, carMark: "Honda", year: 2008, window: .open)
-car2.sunRoof = false
-print(car2.sunRoof)
+
+var car2 = superCar(color: .black, carMark: "Toyota", year: 1972, window: .close, sunRoof: .open)
+print("Люк спорткара \(car2.sunRoof)")
+car2.sunRoofClose()
+print("Люк спорткара \(car2.sunRoof)")
+
+class trunkCar: car {
+    enum Kuzov {
+        case open
+        case close
+    }
+    var kuzov: Kuzov
+    func kuzovOpen() {
+        kuzov = .open
+    }
+    func kuzovClose() {
+        kuzov = .close
+    }
+    init(color:UIColor, carMark: String, year: Int, window: WindowOpen, kuzov: Kuzov) {
+    self.kuzov = kuzov
+        super.init(color: color, carMark: carMark, year: year, window: window)
+    }
+}
+
+var car3 = trunkCar (color: .gray, carMark: "МАЗ", year: 2015, window: .close, kuzov: .close)
+print("Кузов грузовика \(car3.kuzov)")
+car3.kuzovOpen()
+print("Кузов грузовика \(car3.kuzov)")
