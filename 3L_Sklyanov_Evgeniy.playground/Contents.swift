@@ -93,4 +93,3 @@ print("Двигатель автомобиля", (car2.carMark), (car2.year), "�
 car1.openWindow()
 print("Двигатель автомобиля", (car1.carMark), (car1.year), "года выпуска", (car1.motorStart.motorStPrint()))
 print(car1.window.windowPrint())
-
